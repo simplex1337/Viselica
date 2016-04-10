@@ -2,11 +2,10 @@
 #include <stdlib.h>
 int main()
 {
-	int a, b, c;
-	b = 1336;
-	printf("input a play (1 - 6):");	
-	scanf("%d\n", &a);	
-	if (a = 6){
+	int a;
+	if ((a <= 6) && (a >= 1)){ 
+		switch (a) {
+		case 6:
 		printf("		 ******************************** \n");
 		printf("		!>				<!\n");		
 		printf("		!>				<!\n");
@@ -22,9 +21,10 @@ int main()
 		printf("		!>	 ------------------	<!\n");
 		printf("		!>       |		  |	<!\n");
 		printf("		!>				<!\n");		
-		printf("		 ******************************** \n");
-	}		
-		else if (a = 5){
+		printf("		 ******************************** \n");		
+		break;		
+		
+		case 5:
 		printf("		 ******************************** \n");
 		printf("		!>				<!\n");
 		printf("		!>				<!\n");
@@ -41,9 +41,9 @@ int main()
 		printf("		!>	|		  |	<!\n");
 		printf("		!>				<!\n");		
 		printf("		 ******************************** \n");
-		}
+		break;
 		
-		else if (a = 4){
+		case 4:
 		printf("		 ******************************** \n");
 		printf("		!>				<!\n");		
 		printf("		!>	-------------		<!\n");
@@ -60,9 +60,9 @@ int main()
 		printf("		!>	|		  |	<!\n");
 		printf("		!>				<!\n");		
 		printf("		 ******************************** \n");
-		}
+		break;
 		
-		else if (a = 3){
+		case 3:
 		printf("		 ******************************** \n");
 		printf("		!>				<!\n");		
 		printf("		!>	--------------		<!\n");
@@ -79,9 +79,9 @@ int main()
 		printf("		!>	|		  |	<!\n");
 		printf("		!>				<!\n");		
 		printf("		 ******************************** \n");	
-		}
+		break;
 
-		else if (a = 2){
+		case 2:
 		printf("		 ******************************** \n");
 		printf("		!>				<!\n");		
 		printf("		!>	______________		<!\n");
@@ -98,9 +98,9 @@ int main()
 		printf("		!>	|		  |	<!\n");
 		printf("		!>				<!\n");		
 		printf("		 ******************************** \n");	
-		}
+		break;
 		
-		else if (a = 1){
+		case 1:
 		printf("		 ******************************** \n");
 		printf("		!>				<!\n");		
 		printf("		!>	______________		<!\n");
@@ -108,7 +108,7 @@ int main()
 		printf("		!>	|	     |		<!\n");
 		printf("		!>	|	     -	 	<!\n");
 		printf("		!>	|	    (o)  	<!\n");
-		printf("		!>	|	    /0\		<!\n");
+		printf("		!>	|	    /0\\		<!\n");
 		printf("		!>	|	    / \\		<!\n");
 		printf("		!>	|			<!\n");
 		printf("		!>	|	   _____	<!\n");		
@@ -117,9 +117,10 @@ int main()
 		printf("		!>	|		  |	<!\n");
 		printf("		!>				<!\n");		
 		printf("		 ******************************** \n");	
+		break;
 		}
-		
-		else if (a = 0 || a > 6){ 
+	}
+	else {
 		printf("		 ******************************** \n");
 		printf("		!>				<!\n");		
 		printf("		!>				<!\n");
@@ -136,7 +137,6 @@ int main()
 		printf("		!>      		  	<!\n");
 		printf("		!>				<!\n");		
 		printf("		 ******************************** \n");	
-		}
-
+	}	
 	return 0;
 }
