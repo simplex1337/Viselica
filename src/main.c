@@ -14,8 +14,8 @@ void game()
     //здесь получаем слово и тему
     printw("Загаданная тема: хуй.\n"); //написать по центру
     refresh();
+    sleep(3);
     while (life > 0 && a != 'q') {
-        sleep(5);
         clear();
         //обработчик от Мариши
         printw("Ваше слово сейчас: ***\n");
@@ -44,6 +44,8 @@ int main()
         if (a == '\n') {
             game();
         }
+        clear();
+        refresh();
     }
     endwin();
     return 0;

@@ -1,5 +1,5 @@
 lul: ./obj/main.o ./obj/risunok.o
-	gcc -o lul ./obj/main.o ./obj/risunok.o  -lncurses
+	gcc -o lul ./obj/main.o ./obj/risunok.o  -lncursesw
 
 ./obj/main.o: ./src/main.c
 	gcc -c ./src/main.c -o ./obj/main.o
