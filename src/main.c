@@ -14,16 +14,19 @@ void game()
     //здесь получаем слово и тему
     printw("Загаданная тема: хуй.\n"); //написать по центру
     refresh();
-    sleep(3);
+    sleep(1);
+    printw("Нажмите клавишу для начала...");
+    getch();
     while (life > 0 && a != 'q') {
         clear();
         //обработчик от Мариши
         printw("Ваше слово сейчас: ***\n");
         //обработчик с клавы от Ксюн
         printw("Введите букву: \n");
-        printw("Ваша виселица (ещё %d попыток)\n", life);
+        printw("Жизней: %d\n", life);
+        //move(mvwprintf(stdscr, getmaxy(stdscr) - 16, getmaxx(stdscr) - 35, "%s", );
         risunok(life);
-        a = getch();
+        mvwscanw(stdscr, 1, 15, "%c", &a);
         life--;
     }
 }
@@ -35,10 +38,14 @@ int main()
     char a;
     clear();
     refresh();
-    printw("Добро пожаловать в\n");
+    mvwprintw(stdscr, 1, getmaxx(stdscr) / 2 - 5, "Добро пожаловать в\n");
     while (a != 'q' && a != 'Q') {
-        printw("HANGMAN!\n");
-        printw("Нажмите ENTER для начала, U для обучения, Q для выхода.\n");
+        attron(A_BOLD);
+        mvwprintw(stdscr, getmaxy(stdscr) / 2, getmaxx(stdscr) / 2, "HANGMAN\n");
+        attroff(A_BOLD);
+        attron(A_REVERSE);
+        mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для начала, U для обучения, Q для выхода.");
+        attroff(A_REVERSE);
         cbreak();
         a = getch();
         if (a == '\n') {
@@ -48,6 +55,7 @@ int main()
         refresh();
     }
     endwin();
+    printf("Bye - bye!\n");
     return 0;
 }
     
