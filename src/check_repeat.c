@@ -49,12 +49,13 @@ alphabet_init() {
  *********************************************/         
 
 int check_repeat(char symbol) {
+	if ((symbol >='А)' && (symbol <='Я')) {
+		symbol= symbol +20;
+	}
 	int i;
 	for(i=0; i<33; i++)
 	{
-		if ((symbol >='А)' && (symbol <='Я')) {
-			symbol= symbol +20;
-		}
+	
 		if (symbol == alphabet[i] &&((symbol >= 'а') && (symbol <='я'))){
 			printf("Вы уже вводили эту букву.");
 			return  1;
