@@ -2,11 +2,11 @@
 
 int main()
 {
-	FILE * data;
+	FILE * data; 
 	data = fopen("dic.txt", "r");
-	char n;
+	char n[20];
 	for (int i = 0; i < 4; i++)
-        fscanf(data, "%s\n", &n);
+		fscanf(data, "%s\n", &n);
 	fclose(data);
 	return 0;
 }
