@@ -86,7 +86,7 @@ void risunok(int a)
 		case 2:
 		wprintw(ris, " ******************************** \n");
 		wprintw(ris, "!>				<!\n");		
-		wprintw(ris, "!>	______________		<!\n");
+		wprintw(ris, "!>	--------------		<!\n");
 		wprintw(ris, "!>	|	     |		<!\n");
 		wprintw(ris, "!>	|	     |		<!\n");
 		wprintw(ris, "!>	|	     -	 	<!\n");
@@ -105,7 +105,7 @@ void risunok(int a)
 		case 1:
 		wprintw(ris, " ******************************** \n");
 		wprintw(ris, "!>				<!\n");		
-		wprintw(ris, "!>	______________		<!\n");
+		wprintw(ris, "!>	--------------		<!\n");
 		wprintw(ris, "!>	|	     |		<!\n");
 		wprintw(ris, "!>	|	     |		<!\n");
 		wprintw(ris, "!>	|	     -	 	<!\n");
@@ -136,7 +136,7 @@ void risunok(int a)
 		wprintw(ris, "!>				<!\n");
 		wprintw(ris, "!>				<!\n");		
 		wprintw(ris, "!>				<!\n");
-		wprintw(ris, "!>      		  	<!\n");
+		wprintw(ris, "!>      		        	<!\n");
 		wprintw(ris, "!>				<!\n");		
 		wprintw(ris, " ******************************** \n");	
 	}
