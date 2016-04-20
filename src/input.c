@@ -1,4 +1,4 @@
-// Обработка нажатия клавишы BACKSPACE
+/*// Обработка нажатия клавишы BACKSPACE
 
 #include <curses.h>
 #include <locale.h>
@@ -17,24 +17,27 @@ int main() {
 return 0;
 }
 
-// Гришина версия
+// Гришина версия*/
 
 #include <curses.h>
 #include <locale.h>
+#include <unistd.h>
 
 int main() {
 	setlocale( LC_ALL,"" );
 	initscr();
-	char symbol;
+	char symbol = 'a';
 	char button;
 	char a;
 	while (symbol !='\n') {
-	mvwprintw(stdscr, 0, 0, "Введите букву: %с", symbol);
+	mvwprintw(stdscr, 0, 0, "Введите букву: %c", symbol);
+    cbreak();
 	symbol = getch();
 	if (button == KEY_BACKSPACE) {
-		symbol = '\0';
+		symbol = '\t';
 	}
 	clear();
+    endwin();
 }
 return 0;
 }
