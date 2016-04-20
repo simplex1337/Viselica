@@ -23,21 +23,26 @@ return 0;
 #include <locale.h>
 #include <unistd.h>
 
-int main() {
+int main() 
+{
 	setlocale( LC_ALL,"" );
 	initscr();
-	char symbol = 'a';
+	char symbol = '\177';
 	char button;
 	char a;
 	while (symbol !='\n') {
-	mvwprintw(stdscr, 0, 0, "Введите букву: %c", symbol);
-    cbreak();
-	symbol = getch();
-	if (button == KEY_BACKSPACE) {
-		symbol = '\t';
-	}
-	clear();
+        if (symbol == '\177') {
+			printw("Введите букву: ");
+            noecho();
+            delch();
+        }
+        else
+            printw("Введите букву: %c", symbol);
+        cbreak();
+        noecho();
+        symbol = getch();
+        clear();
+    }
     endwin();
-}
-return 0;
+    return 0;
 }
