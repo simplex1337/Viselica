@@ -8,7 +8,7 @@ void risunok(int life);
 
 void game()
 {
-    int life = 10;
+    int life = 12;
     char a;
     clear();
     //здесь получаем слово и тему
