@@ -9,7 +9,6 @@ int main()
     setlocale(LC_ALL, "");
 	initscr();
 	wchar_t symbol = '\177';
-	char button;
 	char a;
 	while (symbol !='\n') {
         if (symbol == '\177')
