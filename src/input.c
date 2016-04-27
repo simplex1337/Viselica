@@ -1,33 +1,14 @@
-/*// Обработка нажатия клавишы BACKSPACE
-
-#include <curses.h>
-#include <locale.h>
-
-int main() {
-	setlocale( LC_ALL,"" );
-	initscr();
-	char symbol;
-	char button;
-	printw("Введите букву:");
-	scanw("%c", &symbol);
-	button = getch();
-	if (button == KEY_BACKSPACE) {
-		delch();
-	}
-return 0;
-}
-
-// Гришина версия*/
-
+#define _XOPEN_SOURCE_EXTENDED
 #include <curses.h>
 #include <locale.h>
 #include <unistd.h>
+#include <wchar.h>
 
 int main() 
 {
-	setlocale( LC_ALL,"" );
+    setlocale(LC_ALL, "");
 	initscr();
-	char symbol = '\177';
+	wchar_t symbol = '\177';
 	char button;
 	char a;
 	while (symbol !='\n') {
@@ -36,11 +17,13 @@ int main()
             noecho();
             delch();
         }
-        else
-            printw("Введите букву: %c", symbol);
+        else {
+            printw("Введите букву: ");
+            addwstr(&symbol);
+        }
         cbreak();
         noecho();
-        symbol = getch();
+        get_wch(&symbol);
         clear();
     }
     endwin();
