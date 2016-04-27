@@ -9,21 +9,21 @@ void risunok(int a)
 		switch (a) {
 		case 10:
 		wprintw(ris, " ******************************** \n");
-		wprintw(ris, "!>				<!\n");		
-		wprintw(ris, "!>				<!\n");
-		wprintw(ris, "!>				<!\n");
-		wprintw(ris, "!>				<!\n");
-		wprintw(ris, "!>				<!\n");
-		wprintw(ris, "!>				<!\n");
 		wprintw(ris, "!>				<!\n");
 		wprintw(ris, "!>				<!\n");
 		wprintw(ris, "!>				<!\n");
 		wprintw(ris, "!>				<!\n");
 		wprintw(ris, "!>				<!\n");		
-		wprintw(ris, "!>	--------------------	<!\n");
-		wprintw(ris, "!>      |		   	    |	<!\n");
+		wprintw(ris, "!>				<!\n");
+		wprintw(ris, "!>				<!\n");
+		wprintw(ris, "!>				<!\n");
+		wprintw(ris, "!>				<!\n");
+		wprintw(ris, "!>				<!\n");	
+		wprintw(ris, "!>				<!\n");			
+		wprintw(ris, "!>	-------------------	<!\n");
+		wprintw(ris, "!>	|		  |	<!\n");
 		wprintw(ris, "!>				<!\n");		
-		wprintw(ris, " ******************************** \n");		
+		wprintw(ris, " ******************************** \n");	
 		break;		
 		
 		case 9:
