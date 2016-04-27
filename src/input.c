@@ -12,14 +12,11 @@ int main()
 	char button;
 	char a;
 	while (symbol !='\n') {
-        if (symbol == '\177') {
+        if (symbol == '\177')
 			printw("Введите букву: ");
-            noecho();
-            delch();
-        }
         else {
             printw("Введите букву: ");
-            addwstr(&symbol);
+            addnwstr(&symbol, 1);
         }
         cbreak();
         noecho();
