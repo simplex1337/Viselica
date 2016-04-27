@@ -21,7 +21,7 @@ void risunok(int a)
 		wprintw(ris, "!>				<!\n");
 		wprintw(ris, "!>				<!\n");		
 		wprintw(ris, "!>	--------------------	<!\n");
-		wprintw(ris, "!>       |		   |	<!\n");
+		wprintw(ris, "!>      |		   	    |	<!\n");
 		wprintw(ris, "!>				<!\n");		
 		wprintw(ris, " ******************************** \n");		
 		break;		
