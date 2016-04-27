@@ -8,11 +8,11 @@ void risunok(int life);
 
 void game()
 {
-    int life = 6;
+    int life = 10;
     char a;
     clear();
     //здесь получаем слово и тему
-    printw("Загаданная тема: хуй.\n"); //написать по центру
+    printw("Загаданная тема: чото.\n"); //написать по центру
     refresh();
     sleep(1);
     printw("Нажмите клавишу для начала...");
