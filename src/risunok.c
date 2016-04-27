@@ -199,6 +199,7 @@ void risunok(int a)
 	
 	
 	
+		}
 	}
 	else {
 		wprintw(ris, " ******************************** \n");
