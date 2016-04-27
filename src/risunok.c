@@ -5,7 +5,7 @@
 void risunok(int a)
 {
     WINDOW *ris = subwin(stdscr, 0, 0, getmaxy(stdscr) - 16, getmaxx(stdscr) - 35);
-	if ((a <= 6) && (a >= 1)){ 
+	if ((a <= 10) && (a >= 1)){ 
 		switch (a) {
 		case 10:
 		wprintw(ris, " ******************************** \n");
@@ -148,7 +148,7 @@ void risunok(int a)
 		wprintw(ris, "!>	|	     |		<!\n");
 		wprintw(ris, "!>	|	     -	 	<!\n");
 		wprintw(ris, "!>	|	    (o)  	<!\n");
-		wprintw(ris, "!>	|	    /0\\	<!\n");
+		wprintw(ris, "!>	|	    /0\\		<!\n");
 		wprintw(ris, "!>	|	    		<!\n");
 		wprintw(ris, "!>	|			<!\n");
 		wprintw(ris, "!>	|	   _____	<!\n");		
@@ -167,7 +167,7 @@ void risunok(int a)
 		wprintw(ris, "!>	|	     |		<!\n");
 		wprintw(ris, "!>	|	     -	 	<!\n");
 		wprintw(ris, "!>	|	    (o) 	<!\n");
-		wprintw(ris, "!>	|	    /0\\	<!\n");
+		wprintw(ris, "!>	|	    /0\\		<!\n");
 		wprintw(ris, "!>	|	    /		<!\n");
 		wprintw(ris, "!>	|			<!\n");
 		wprintw(ris, "!>	|	   _____	<!\n");		
@@ -186,8 +186,8 @@ void risunok(int a)
 		wprintw(ris, "!>	|	     |		<!\n");
 		wprintw(ris, "!>	|	     -	 	<!\n");
 		wprintw(ris, "!>	|	    (o)  	<!\n");
-		wprintw(ris, "!>	|	    /0\\	<!\n");
-		wprintw(ris, "!>	|	    / \\	<!\n");
+		wprintw(ris, "!>	|	    /0\\		<!\n");
+		wprintw(ris, "!>	|	    / \\ 		<!\n");
 		wprintw(ris, "!>	|			<!\n");
 		wprintw(ris, "!>	|	   _____	<!\n");		
 		wprintw(ris, "!>	|	   |   |	<!\n");			
