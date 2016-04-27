@@ -187,7 +187,7 @@ void risunok(int a)
 		wprintw(ris, "!>	|	     -	 	<!\n");
 		wprintw(ris, "!>	|	    (o)  	<!\n");
 		wprintw(ris, "!>	|	    /0\\		<!\n");
-		wprintw(ris, "!>	|	    / \\ 		<!\n");
+		wprintw(ris, "!>	|	    / \\		<!\n");
 		wprintw(ris, "!>	|			<!\n");
 		wprintw(ris, "!>	|	   _____	<!\n");		
 		wprintw(ris, "!>	|	   |   |	<!\n");			
