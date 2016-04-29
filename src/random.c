@@ -2,14 +2,16 @@
 
 int main()
 {
-	FILE * data; 
-	data = fopen("dic.txt", "r");
-	int k = 1;
-	int i, j;
-	char n[10];
-	while( !feof(data) )  
-		fscanf(data, "%s", &n ); 
+	FILE *data = fopen("dic.txt", "r");
+	char *n;
+	int num;
+	scanf("%d", &num);
+	int i;
+	for(i = 0;  i < num; i++) {
+		fscanf(data, "%s\n", n);
+	}
+	fscanf(data, "%s\n", n);
+	printf("%s\n", n); 
 	fclose(data);
-	printf("%s\n", n);
 	return 0;
 }
