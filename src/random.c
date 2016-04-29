@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 int num;
-int main()
+int random_word()
 {
 	FILE *data = fopen("dic.txt", "r");
     char word[15];
