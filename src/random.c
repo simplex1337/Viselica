@@ -4,15 +4,13 @@
 #include <time.h>
 #include <stdlib.h>
 
-int getrand(int min, int max);
-
+int num;
 int main()
 {
 	FILE *data = fopen("dic.txt", "r");
-	char *n;
+    char word[15];
 	time_t t;
-	int num, min, max, tema; // tema - номер темы, принимает значения 1, 2, 3
-	srand((unsigned) time(&t));
+	int min, max, tema; // tema - номер темы, принимает значения 1, 2, 3
 	scanf("%d", &tema); // для теста, убрать при конечной сборке
 	//scanf("%d %d'", &min, &max);
 	if (tema == 1) { // животные
@@ -27,19 +25,13 @@ int main()
 		min = 49;
 		max = 73;
 	}
-	num = getrand(min, max);
+	srand(time(NULL));
+	num = rand() / (RAND_MAX + 1.0) * (max - min) + min;
 	int i;
-	for(i = 0;  i < num; i++) {
-		fscanf(data, "%s\n", n);
-	}
-	fscanf(data, "%s\n", n);
-	printf("%s\n", n); 
+	for(i = 0;  i < num; i++)
+		fscanf(data, "%s\n", word);
+	fscanf(data, "%s\n", word);
+	printf("%s\n", word); 
 	fclose(data);
 	return 0;
-}
-
-int getrand(int min, int max)
-{
-	srand(rand() + clock());
-	return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
 }
