@@ -7,7 +7,7 @@
 wchar_t input() 
 {
     setlocale(LC_ALL, "");
-	wchar_t symbol = '\177';
+	wchar_t symbol, temp;
 	while (symbol !='\n') {
         if (symbol == '\177')
 			mvwprintw(stdscr, 1, 0,("Введите букву: "));
@@ -15,10 +15,13 @@ wchar_t input()
             mvwprintw(stdscr, 1, 0,("Введите букву: "));
             addnwstr(&symbol, 1);
         }
+        if (symbol == 'q')
+            return symbol;
         cbreak();
         noecho();
+        temp = symbol;
         get_wch(&symbol);
     }
     endwin();
-    return symbol;
+    return temp;
 }

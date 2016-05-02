@@ -35,6 +35,9 @@ void game()
                 addch(' ');
             printw("%s\n", themes[i]);
         }
+        attron(A_REVERSE);
+        mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для подтверждения, стрелки вверх/вниз для выбора");
+        attroff(A_REVERSE);
         switch (getch()) {
             case KEY_UP:
                 if (choice)
@@ -49,26 +52,31 @@ void game()
             break;
         }
     }
+    keypad(stdscr, false);
     random_word(choice);
-    while (life > 0) {
+    while (life > 0 && guess != 'q') {
         clear();
         //обработчик от Мариши
         printw("Ваше слово сейчас: ***\n");
         mvprintw(2, 0,"Жизней: %d\n", life);
         risunok(life);//рисунок от Дани
+        attron(A_REVERSE);
+        mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для подтверждения, Q для выхода");
+        attroff(A_REVERSE);
         guess = input();//ввод от Ксюни
         life--;
     }
+    clear();
+    return;
 }
 
 int main()
 {
     setlocale( LC_ALL,"" );
     initscr();
-    char a;
+    wchar_t a;
     mvwprintw(stdscr, 1, (getmaxx(stdscr) - 18)/ 2, "Добро пожаловать в\n");
-    refresh();
-    while (a != 'q' && a != 'Q') {
+    while (a != 'q' && a != 'Q' && a != "й" && a != "Й") {
         attron(A_BOLD);
         WINDOW *welc = subwin(stdscr, 6, 64, (LINES - 6) / 2, (COLS - 64) / 2);
         wprintw(welc, 
@@ -86,11 +94,8 @@ int main()
         attroff(A_REVERSE);
         cbreak();
         a = getch();
-        if (a == '\n') {
+        if (a == '\n')
             game();
-        }
-        clear();
-        refresh();
     }
     endwin();
     printf("Bye - bye!\n");
