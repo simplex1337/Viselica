@@ -3,9 +3,11 @@
 #include <curses.h>
 #include <unistd.h>
 #include <locale.h>
+#include <string.h>
 
+char word[20];
 void risunok(int life);
-char random_word(unsigned int choice);
+void random_word(unsigned int choice);
 const char themes[3][18] = {
     "Животные", 
     "Спорт",
@@ -14,13 +16,13 @@ const char themes[3][18] = {
 
 void game()
 {
-    unsigned int choice;
-    int life = 12;
+    unsigned int choice = 0;
+    int life = 12, flg = 0;
     char a;
     clear();
     keypad(stdscr, true);
     curs_set(0); 
-    while (true) {
+    while (!flg) {
         unsigned i;
         clear();
         printw("Выберите тему:\n");
@@ -40,12 +42,13 @@ void game()
                 if (choice != 2)
                     choice++;
             break;
-            case KEY_ENTER:
-                break;
+            case '\n':
+                flg++;
             break;
         }
     }
     random_word(choice);
+    printw("%s\n", word);
     printw("Нажмите клавишу для начала...");
     getch();
     while (life > 0 && a != 'q') {
