@@ -74,7 +74,7 @@ int main()
     mvwprintw(stdscr, 1, getmaxx(stdscr) / 2 - 5, "Добро пожаловать в\n");
     while (a != 'q' && a != 'Q') {
         attron(A_BOLD);
-        WINDOW *welc = subwin(stdscr, 6, 64, getmaxy(stdscr) / 2 - 3, getmaxx(stdscr) / 4 + 16);
+        WINDOW *welc = subwin(stdscr, 6, 64, (LINES - 6) / 2, (COLS - 64) / 2);
         wprintw(welc, 
         "██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗"
         "██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║"
