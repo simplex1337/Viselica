@@ -3,11 +3,12 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <wchar.h>
 
 int num;
 void random_word(unsigned int choice)
 {
-    extern char word[];
+    extern wchar_t word[];
 	int min, max, i; // tema - номер темы, принимает значения 1, 2, 3
 	if (choice == 0) { // животные
 		min = 0;

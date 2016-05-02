@@ -4,24 +4,21 @@
 #include <unistd.h>
 #include <wchar.h>
 
-int main() 
+wchar_t input() 
 {
     setlocale(LC_ALL, "");
-	initscr();
 	wchar_t symbol = '\177';
-	char a;
 	while (symbol !='\n') {
         if (symbol == '\177')
-			printw("Введите букву: ");
+			mvwprintw(stdscr, 1, 0,("Введите букву: "));
         else {
-            printw("Введите букву: ");
+            mvwprintw(stdscr, 1, 0,("Введите букву: "));
             addnwstr(&symbol, 1);
         }
         cbreak();
         noecho();
         get_wch(&symbol);
-        clear();
     }
     endwin();
-    return 0;
+    return symbol;
 }

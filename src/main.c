@@ -4,10 +4,12 @@
 #include <unistd.h>
 #include <locale.h>
 #include <string.h>
+#include <wchar.h>
 
-char word[20];
 void risunok(int life);
 void random_word(unsigned int choice);
+wchar_t input();
+wchar_t word[20];
 const char themes[3][18] = {
     "Животные", 
     "Спорт",
@@ -18,7 +20,7 @@ void game()
 {
     unsigned int choice = 0;
     int life = 12, flg = 0;
-    char a;
+    wchar_t guess, quit = 'q';
     clear();
     keypad(stdscr, true);
     curs_set(0); 
@@ -48,18 +50,13 @@ void game()
         }
     }
     random_word(choice);
-    printw("%s\n", word);
-    printw("Нажмите клавишу для начала...");
-    getch();
-    while (life > 0 && a != 'q') {
+    while (life > 0) {
         clear();
         //обработчик от Мариши
         printw("Ваше слово сейчас: ***\n");
-        //обработчик с клавы от Ксюн
-        printw("Введите букву: \n");
-        printw("Жизней: %d\n", life);
-        risunok(life);
-        mvwscanw(stdscr, 1, 15, "%c", &a);
+        mvprintw(2, 0,"Жизней: %d\n", life);
+        risunok(life);//рисунок от Дани
+        guess = input();//ввод от Ксюни
         life--;
     }
 }
@@ -69,9 +66,8 @@ int main()
     setlocale( LC_ALL,"" );
     initscr();
     char a;
-    clear();
+    mvwprintw(stdscr, 1, (getmaxx(stdscr) - 18)/ 2, "Добро пожаловать в\n");
     refresh();
-    mvwprintw(stdscr, 1, getmaxx(stdscr) / 2 - 5, "Добро пожаловать в\n");
     while (a != 'q' && a != 'Q') {
         attron(A_BOLD);
         WINDOW *welc = subwin(stdscr, 6, 64, (LINES - 6) / 2, (COLS - 64) / 2);
@@ -86,7 +82,7 @@ int main()
         delwin(welc);
         attroff(A_BOLD);
         attron(A_REVERSE);
-        mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для начала, U для обучения, Q для выхода.");
+        mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для начала, Q для выхода");
         attroff(A_REVERSE);
         cbreak();
         a = getch();
