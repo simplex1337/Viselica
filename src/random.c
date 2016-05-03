@@ -9,7 +9,7 @@ int num;
 void random_word(unsigned int choice)
 {
     extern wchar_t word[];
-	int min, max, i; // tema - номер темы, принимает значения 1, 2, 3
+	int min, max, i; // tema - номер темы, принимает значения 0, 1, 2
 	if (choice == 0) { // животные
 		min = 0;
 		max = 25;
