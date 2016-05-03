@@ -1,5 +1,5 @@
 #define _XOPEN_SOURCE_EXTENDED
-#include <curses.h>
+#include <curses.h>			//ввод с клавиатуры символа юникода
 #include <locale.h>
 #include <unistd.h>
 #include <wchar.h>
