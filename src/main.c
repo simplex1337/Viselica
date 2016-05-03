@@ -8,6 +8,7 @@
 
 void risunok(int life);
 void random_word(unsigned int choice);
+void asteriks(char cens[], wchar_t guess);
 wchar_t input();
 wchar_t word[20];
 const char themes[3][18] = {
@@ -20,7 +21,7 @@ void game()
 {
     unsigned int choice = 0;
     int life = 12, flg = 0;
-    wchar_t guess, quit = 'q';
+    wchar_t guess;
     clear();
     keypad(stdscr, true);
     curs_set(0); 
@@ -54,11 +55,13 @@ void game()
     }
     keypad(stdscr, false);
     random_word(choice);
+    char cens[(wcslen(word)+1)];
     while (life > 0 && guess != 'q') {
         clear();
-        //обработчик от Мариши
-        printw("Ваше слово сейчас: ***\n");
+        asteriks(cens, guess);//обработчик от Мариши
+        printw("Ваше слово сейчас: %s\n", cens);
         mvprintw(2, 0,"Жизней: %d\n", life);
+        mvprintw(5, 0,"%s\n", word);
         risunok(life);//рисунок от Дани
         attron(A_REVERSE);
         mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для подтверждения, Q для выхода");
@@ -72,11 +75,11 @@ void game()
 
 int main()
 {
-    setlocale( LC_ALL,"" );
+    setlocale(LC_ALL,"");
     initscr();
     wchar_t a;
     mvwprintw(stdscr, 1, (getmaxx(stdscr) - 18)/ 2, "Добро пожаловать в\n");
-    while (a != 'q' && a != 'Q' && a != "й" && a != "Й") {
+    while (a != 'q' && a != 'Q') {
         attron(A_BOLD);
         WINDOW *welc = subwin(stdscr, 6, 64, (LINES - 6) / 2, (COLS - 64) / 2);
         wprintw(welc, 
