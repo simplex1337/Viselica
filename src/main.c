@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <curses.h>
+#include <stdio.h>          //главная функция
+#include <stdlib.h>         //объединяет все подфункции
+#include <curses.h>         //является так же графической оболочкой
 #include <unistd.h>
 #include <locale.h>
 #include <string.h>
