@@ -24,8 +24,9 @@ void random_word(unsigned int choice)
 	}
 	srand(time(NULL));
 	num = rand() / (RAND_MAX + 1.0) * (max - min) + min;
-    for (i = 0; num > 0; i++)
-        if (data[i] == '\n')
-            num--;
-    swscanf(&data[i], L"%s\n", word);
+    for(i = 0;  i < num; i++)
+		fscanf(data, "%s\n", word);
+	fscanf(data, "%s\n", word);
+	printf("%s\n", word); 
+	fclose(data);
 }
