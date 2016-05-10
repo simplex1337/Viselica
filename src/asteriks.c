@@ -1,21 +1,23 @@
 #include <stdio.h>          //функция, которая отображает
 #include <string.h>         //слово, из букв, которые
 #include <stdlib.h>         //были отгаданы
-#include <wchar.h>
 
-extern wchar_t word[];
-void asteriks(char cens[], wchar_t guess)
+extern char word[];
+void asteriks(char cens[], char guess, int life)
 {
-    int i;
-    char guess_chr;
-    wcstombs(&guess_chr, &guess, 1);
-    int len;
-    if (wcslen(word) % 2 == 1)
-        len = wcslen(word) * 2 - 1;
-    else
-        len = wcslen(word) * 2;
-    for (i = 0; i < len; i++) {
-        cens[i] = '*';
+    int i, flg = 0;
+    for (i = 0; i < strlen(word); i++) {
+        if (guess == word[i] || (guess - 32) == word[i]
+                             || (guess + 32) == word[i]) {
+            cens[i] = word[i];
+            flg++;
+        }
+        if (cens[i] != '*' && cens[i] != '\0')
+            cens[i] = cens[i];
+        else 
+            cens[i] = '*';
     }
-    cens[i+1] = '\0';
+    if (flg == 0)
+         life--;
+    return life;
 }
