@@ -4,14 +4,14 @@
 #include <unistd.h>
 #include <locale.h>
 #include <string.h>
-#include <wchar.h>
+#define WORD_SIZE 20
 
 void risunok(int life);
 void random_word(unsigned int choice);
-void asteriks(char cens[], wchar_t guess);
-wchar_t input();
-wchar_t word[20];
-const char themes[3][18] = {
+int asteriks(char cens[], char guess, int life);
+unsigned char input();
+char word[20]; 
+const char themes[4][18] = {
     "Животные", 
     "Спорт",
     "Растения"
@@ -20,8 +20,8 @@ const char themes[3][18] = {
 void game()
 {
     unsigned int choice = 0;
-    int life = 12, flg = 0;
-    wchar_t guess;
+    int i, life = 13, flg = 0;
+    char guess;
     clear();
     keypad(stdscr, true);
     curs_set(0); 
@@ -55,20 +55,29 @@ void game()
     }
     keypad(stdscr, false);
     random_word(choice);
-    char cens[(wcslen(word)+1)];
-    while (life > 0 && guess != 'q') {
+    char cens[20];
+    for (i = 0; i < 20; i++)
+        cens[i] = '\0';
+    while (strcmp(cens, word) && life > 0 && guess != 'q') {
         clear();
-        asteriks(cens, guess);//обработчик от Мариши
+        life = asteriks(cens, guess, life);//обработчик от Мариши
         printw("Ваше слово сейчас: %s\n", cens);
         mvprintw(2, 0,"Жизней: %d\n", life);
-        mvprintw(5, 0,"%s\n", word);
         risunok(life);//рисунок от Дани
         attron(A_REVERSE);
         mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для подтверждения, Q для выхода");
         attroff(A_REVERSE);
         guess = input();//ввод от Ксюни
-        life--;
     }
+    clear();
+    printw("Загаданное слово было: %s\n", word); 
+    if (life > 0)
+        printw("Осталось жизней: %d\n", life);
+    attron(A_REVERSE);
+    mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для продолжения");
+    attroff(A_REVERSE);
+    cbreak();
+    getch();
     clear();
     return;
 }

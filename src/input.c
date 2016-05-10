@@ -2,26 +2,23 @@
 #include <curses.h>			//ввод с клавиатуры символа юникода
 #include <locale.h>
 #include <unistd.h>
-#include <wchar.h>
 
-wchar_t input() 
+unsigned char input() 
 {
-    setlocale(LC_ALL, "");
-	wchar_t symbol, temp;
+	char symbol, temp;
 	while (symbol !='\n') {
         if (symbol == '\177')
 			mvwprintw(stdscr, 1, 0,("Введите букву: "));
         else {
             mvwprintw(stdscr, 1, 0,("Введите букву: "));
-            addnwstr(&symbol, 1);
+            addstr(&symbol);
         }
         if (symbol == 'q')
             return symbol;
         cbreak();
         noecho();
         temp = symbol;
-        get_wch(&symbol);
+        symbol = getch();
     }
-    endwin();
     return temp;
 }

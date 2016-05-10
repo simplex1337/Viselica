@@ -1,7 +1,7 @@
 hangman: ./obj/main.o ./obj/risunok.o ./obj/random.o ./obj/input.o ./obj/asteriks.o
 	gcc -o hangman ./obj/main.o ./obj/risunok.o ./obj/random.o ./obj/asteriks.o ./obj/input.o -lncursesw
 
-hangman_debug: 
+hangman_dbg: 
 	gcc -g -o hangman_debug ./src/main.c ./src/risunok.c ./src/random.c ./src/asteriks.c ./src/input.c -lncursesw
 
 ./obj/main.o: ./src/main.c
