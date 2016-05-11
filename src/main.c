@@ -98,16 +98,17 @@ int main()
         "██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║"
         "██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║"
         "╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝");
-        refresh();
-        delwin(welc);
         attroff(A_BOLD);
         attron(A_REVERSE);
         mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для начала, Q для выхода");
         attroff(A_REVERSE);
         cbreak();
+        refresh();
         a = getch();
-        if (a == '\n')
+        if (a == '\n') {
+            delwin(welc);
             game();
+        }
     }
     endwin();
     printf("Bye - bye!\n");

@@ -3,7 +3,7 @@
 #include <stdlib.h>         //были отгаданы
 
 extern char word[];
-void asteriks(char cens[], char guess, int life)
+int asteriks(char cens[], char guess, int life)
 {
     int i, flg = 0;
     for (i = 0; i < strlen(word); i++) {
