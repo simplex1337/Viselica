@@ -13,8 +13,8 @@ unsigned char input();
 char word[20]; 
 const char themes[4][18] = {
     "Животные", 
-    "Спорт",
-    "Растения"
+    "Птицы",
+    "Профессии"
 };
 
 void game()
