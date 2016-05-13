@@ -3,6 +3,7 @@
 #include <curses.h>
 //программа получает количество жизней "а"
 //и по этим количествам строится рисунок виселицы
+// Сделал Даня!
 void risunok(int a)
 {
     WINDOW *ris = subwin(stdscr, 0, 0, getmaxy(stdscr) - 16, getmaxx(stdscr) - 35);
