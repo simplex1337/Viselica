@@ -11,10 +11,12 @@ void random_word(unsigned int choice);
 int asteriks(char cens[], char guess, int life);
 unsigned char input();
 char word[20]; 
-const char themes[4][18] = {
+const char themes[6][43] = {
     "Животные", 
     "Птицы",
-    "Профессии"
+    "Профессии",
+    "Марки автомобилей",
+    "Сладости"
 };
 
 void game()
@@ -29,7 +31,7 @@ void game()
         unsigned i;
         clear();
         printw("Выберите тему:\n");
-        for (i = 0; i < 3; i++) {
+        for (i = 0; i < 5; i++) {
             if ( i == choice )
                 addch('>');
             else          
@@ -45,7 +47,7 @@ void game()
                     choice--; 
             break;
             case KEY_DOWN:
-                if (choice != 2)
+                if (choice != 4)
                     choice++;
             break;
             case '\n':

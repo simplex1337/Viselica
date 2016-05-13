@@ -21,6 +21,14 @@ void random_word(unsigned int choice)
 		min = 158;
 		max = 299;
 	}
+	if (choice == 3) { // Марки машин
+		min = 300;
+		max = 349;
+	}
+	if (choice == 4) { // Сладости
+		min = 350;
+		max = 408;
+	}
 	srand(time(NULL));
 	int num = rand() / (RAND_MAX + 1.0) * (max - min) + min;
     for(i = 0;  i < num; i++)
