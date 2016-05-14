@@ -8,6 +8,7 @@
 
 void risunok(int life);
 void random_word(unsigned int choice);
+void risunok1(int life);
 int asteriks(char cens[], char guess, int life);
 unsigned char input();
 char word[20]; 
@@ -64,7 +65,8 @@ void game()
         printw("Ваше слово сейчас: %s\n", cens);
         mvprintw(2, 0,"Жизней: %d\n", life);
         risunok(life);//рисунок от Дани
-        attron(A_REVERSE);
+	risunok1(life);        
+	attron(A_REVERSE);
         mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для подтверждения, Q для выхода");
         attroff(A_REVERSE);
         guess = input();//ввод от Ксюни
