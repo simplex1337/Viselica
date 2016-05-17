@@ -8,9 +8,9 @@ void random_word(unsigned int choice);
 
 CTEST(register, random_word)
 {
-    unsigned int *choice = NULL;
-    char rez = random_word("test", &choice);
+    unsigned int choice = NULL;
+    char rez = random_word(choice);
     ASSERT_STR("тест", choice);
     ASSERT_EQUAL(1, rez);
-    free(out);
+    free(choice);
 }
