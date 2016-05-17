@@ -68,7 +68,7 @@ void game()
         printw("Ваше слово сейчас: %s\n", cens);
         //mvprintw(2, 0,"Жизней: %d\n", life);
         risunok(life);//рисунок от Дани
-	jizi(life);
+	jizi(life);//жизни от Дани
 	attron(A_REVERSE);
         mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для подтверждения, Q для выхода");
         attroff(A_REVERSE);
