@@ -7,6 +7,7 @@
 #define WORD_SIZE 20
 
 void jizi(int life);
+void risunok1(int life);
 void risunok(int life);
 void random_word(unsigned int choice);
 void risunok1(int life);
@@ -69,6 +70,7 @@ void game()
         //mvprintw(2, 0,"Жизней: %d\n", life);
         risunok(life);//рисунок от Дани
 	jizi(life);//жизни от Дани
+	risunok1(life);	
 	attron(A_REVERSE);
         mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для подтверждения, Q для выхода");
         attroff(A_REVERSE);
