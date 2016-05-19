@@ -10,7 +10,10 @@ void risunok(int life);
 void random_word(unsigned int choice);
 int asteriks(char cens[], char guess, int life);
 unsigned char input();
-char word[20]; 
+char word[20];
+char tema[20];
+void theme(unsigned int choice);
+
 const char themes[6][43] = {
     "Животные", 
     "Птицы",
@@ -57,12 +60,14 @@ void game()
     }
     keypad(stdscr, false);
     random_word(choice);
+    theme(choice);
     char cens[20];
     for (i = 0; i < 20; i++)
         cens[i] = '\0';
     while (strcmp(cens, word) && life > 0 && guess != 'q') {
         clear();
         life = asteriks(cens, guess, life);//обработчик от Мариши
+        //printw("Ваше тема сейчас: %s\n", tema);
         printw("Ваше слово сейчас: %s\n", cens);
         mvprintw(2, 0,"Жизней: %d\n", life);
         risunok(life);//рисунок от Дани
