@@ -5,9 +5,9 @@
 void risunok1(int a)
 {
 	initscr();
-	WINDOW *lic = subwin(stdscr, 25, 40, 16, 35);
-	WINDOW *con = subwin(stdscr, 25, 70, 23, 40);	
-	if ((a <= 12) && (a >= 1)){ 
+	//WINDOW *lic = subwin(stdscr, 25, 40, 16, 35);
+	WINDOW *con = subwin(stdscr, 23, 70, (LINES - 6) / 2, (COLS - 64) / 2);	
+	/*if ((a <= 12) && (a >= 1)){ 
 		switch (a) {
 			case 12:
 				wprintw(lic,"        ###################\n");     
@@ -306,7 +306,7 @@ void risunok1(int a)
         			wprintw(lic,"       #####################\n");
 	 		break;
 		}
-		}		
+		}*/		
 		if (a == 0){
 			wprintw(con," ██╗   ██╗ ██████╗ ██╗   ██╗    ██╗      ██████╗ ███████╗███████╗██╗\n");
 			wprintw(con," ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║     ██╔═══██╗██╔════╝██╔════╝██║\n");
@@ -315,6 +315,6 @@ void risunok1(int a)
 			wprintw(con,"    ██║   ╚██████╔╝╚██████╔╝    ███████╗╚██████╔╝███████║███████╗██╗\n");
 			wprintw(con,"    ╚═╝    ╚═════╝  ╚═════╝     ╚══════╝ ╚═════╝ ╚══════╝╚══════╝╚═╝\n");
                 }
-	delwin(lic);	
+	//delwin(lic);	
 	delwin(con);	
 }

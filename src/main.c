@@ -79,7 +79,8 @@ void game()
     clear();
     printw("Загаданное слово было: %s\n", word); 
 	initscr();
-	WINDOW *con = subwin(stdscr, 25, 70, 23, 40);
+	WINDOW *con = subwin(stdscr, 23, 70, (LINES - 6) / 2, (COLS - 64) / 2);
+	//WINDOW *con = subwin(stdscr, 25, 70, 23, 40);
     if ((life > 0) && (guess != 'q')){
         printw("Осталось жизней: %d\n", life);
 		jizi(life);  		
