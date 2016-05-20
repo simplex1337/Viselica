@@ -306,6 +306,6 @@ void risunok1(int a)
         			wprintw(lic,"       #####################\n");
 	 		break;
 		}
-
+		}
 	delwin(lic);	
 }
