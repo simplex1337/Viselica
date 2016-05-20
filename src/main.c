@@ -11,7 +11,7 @@ void random_word(unsigned int choice);
 int asteriks(char cens[], char guess, int life);
 unsigned char input();
 char word[20];
-char tema[20];
+//char tema[20];
 void theme(unsigned int choice);
 
 const char themes[6][43] = {
@@ -60,7 +60,11 @@ void game()
     }
     keypad(stdscr, false);
     random_word(choice);
-    theme(choice);
+    if (flg == 1) {
+        fprintf(stderr, "count; No enough memory\n");
+         exit(EXIT_FAILURE);
+    }
+    //theme(choice);
     char cens[20];
     for (i = 0; i < 20; i++)
         cens[i] = '\0';

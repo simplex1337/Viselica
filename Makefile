@@ -1,5 +1,5 @@
-hangman: ./obj/main.o ./obj/risunok.o ./obj/random.o ./obj/input.o ./obj/asteriks.o ./obj/themes.o
-	gcc -o hangman ./obj/main.o ./obj/risunok.o ./obj/random.o ./obj/asteriks.o ./obj/input.o ./obj/themes.o -lncursesw
+hangman: ./obj/main.o ./obj/risunok.o ./obj/random.o ./obj/input.o ./obj/asteriks.o
+	gcc -o hangman ./obj/main.o ./obj/risunok.o ./obj/random.o ./obj/asteriks.o ./obj/input.o -lncursesw
 
 hangman_dbg: 
 	gcc -g -o hangman_debug ./src/main.c ./src/risunok.c ./src/random.c ./src/asteriks.c ./src/input.c -lncursesw
@@ -19,5 +19,3 @@ hangman_dbg:
 ./obj/asteriks.o: ./src/asteriks.c
 	gcc -c ./src/asteriks.c -o ./obj/asteriks.o
 
-./obj/themes.o: ./src/themes.c
-	gcc -c ./src/themes.c -o ./obj/themes.o

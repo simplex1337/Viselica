@@ -7,7 +7,10 @@ extern char word[];
 
 void random_word(unsigned int choice)
 {
+	int flg;
     FILE *data = fopen("dict.txt", "r");
+    if (data == NULL) 
+		flg = 1;
 	int min, max, i; // tema - номер темы, принимает значения 0, 1, 2
 	if (choice == 0) { // животные
 		min = 0;
