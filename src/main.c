@@ -1,15 +1,5 @@
-#include <stdio.h>          //главная функция
-#include <stdlib.h>         //объединяет все подфункции
-#include <curses.h>         //является так же графической оболочкой
-#include <unistd.h>
-#include <locale.h>
-#include <string.h>
-#define WORD_SIZE 20
+#include "vis.h"
 
-void risunok(int life);
-void random_word(unsigned int choice);
-int asteriks(char cens[], char guess, int life);
-unsigned char input();
 char word[20]; 
 const char themes[4][18] = {
     "Животные", 
@@ -54,13 +44,13 @@ void game()
         }
     }
     keypad(stdscr, false);
-    random_word(choice);
+    random_word(word, choice);
     char cens[20];
     for (i = 0; i < 20; i++)
         cens[i] = '\0';
     while (strcmp(cens, word) && life > 0 && guess != 'q') {
         clear();
-        life = asteriks(cens, guess, life);//обработчик от Мариши
+        life = asteriks(word, cens, guess, life);//обработчик от Мариши
         printw("Ваше слово сейчас: %s\n", cens);
         mvprintw(2, 0,"Жизней: %d\n", life);
         risunok(life);//рисунок от Дани

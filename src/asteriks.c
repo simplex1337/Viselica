@@ -1,9 +1,8 @@
-#include <stdio.h>          //функция, которая отображает
-#include <string.h>         //слово, из букв, которые
-#include <stdlib.h>         //были отгаданы
+#include "vis.h"          //функция, которая отображает
+                         //слово, из букв, которые
+                        //были отгаданы
 
-extern char word[];
-int asteriks(char cens[], char guess, int life)
+int asteriks(char word[], char cens[], char guess, int life)
 {
     int i, flg = 0;
     for (i = 0; i < strlen(word); i++) {

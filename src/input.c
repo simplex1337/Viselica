@@ -1,7 +1,5 @@
 #define _XOPEN_SOURCE_EXTENDED
-#include <curses.h>			//ввод с клавиатуры символа юникода
-#include <locale.h>
-#include <unistd.h>
+#include "vis.h"			//ввод с клавиатуры символа юникода
 
 unsigned char input() 
 {
