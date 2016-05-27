@@ -6,6 +6,9 @@
 #include <string.h>
 #define WORD_SIZE 20
 
+void win();
+void lose();
+void hangman();
 void jizi(int life);
 void risunok1(int life);
 void risunok(int life);
@@ -83,26 +86,12 @@ void game()
     if ((life > 0) && (guess != 'q')){
         printw("Осталось жизней: %d\n", life);
 		jizi(life);  		
-			wprintw(con,"██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗██╗███╗   ██╗\n");
-			wprintw(con,"╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██║████╗  ██║\n");
-			wprintw(con," ╚████╔╝ ██║   ██║██║   ██║    ██║ █╗ ██║██║██╔██╗ ██║\n");
-			wprintw(con,"  ╚██╔╝  ██║   ██║██║   ██║    ██║███╗██║██║██║╚██╗██║\n");
-			wprintw(con,"   ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝██║██║ ╚████║\n");
-			wprintw(con,"   ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝\n");  
+		win();	
 	}
 	else {
 		printw("Осталось жизней: %d\n", life);
-        wprintw(con,
-        "▓██   ██▓ ▒█████   █    ██     ██▓     ▒█████    ██████ ▓█████\n"
-        " ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▓██▒    ▒██▒  ██▒▒██    ▒ ▓█   ▀\n" 
-        "  ▒██ ██░▒██░  ██▒▓██  ▒██░   ▒██░    ▒██░  ██▒░ ▓██▄   ▒███  \n" 
-        "  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ▒██░    ▒██   ██░  ▒   ██▒▒▓█  ▄\n" 
-        "  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░██████▒░ ████▓▒░▒██████▒▒░▒████▒\n"
-        "   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒    ░ ▒░▓  ░░ ▒░▒░▒░ ▒ ▒▓▒ ▒ ░░░ ▒░ ░\n"
-        " ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░    ░ ░ ▒  ░  ░ ▒ ▒░ ░ ░▒  ░ ░ ░ ░  ░\n"
-        " ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░      ░ ░   ░ ░ ░ ▒  ░  ░  ░     ░\n"   
-        " ░ ░      ░ ░     ░            ░  ░    ░ ░        ░     ░  ░\n");                                                           
-    }
+		lose();                                                        
+	}
 	delwin(con);
 	attron(A_REVERSE);
     mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для продолжения");
@@ -116,20 +105,16 @@ void game()
 int main()
 {
     setlocale(LC_ALL,"");
-    initscr();
+    
     wchar_t a;
     mvwprintw(stdscr, 1, (getmaxx(stdscr) - 18)/ 2, "Добро пожаловать в\n");
     while (a != 'q' && a != 'Q') {
         //attron(A_BOLD);
-        WINDOW *welc = subwin(stdscr, 6, 64, (LINES - 6) / 2, (COLS - 64) / 2);
-        wprintw(welc, 
-        "██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗"
-        "██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║"
-        "███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║"
-        "██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║"
-        "██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║"
-        "╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝");
-        //attroff(A_BOLD);
+	initscr();	
+	WINDOW *welc = subwin(stdscr, 6, 64, (LINES - 6) / 2, (COLS - 64) / 2);
+	hangman();
+	delwin(welc);        
+	//attroff(A_BOLD);
         attron(A_REVERSE);
         mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для начала, Q для выхода");
         attroff(A_REVERSE);
@@ -137,7 +122,6 @@ int main()
         refresh();
         a = getch();
         if (a == '\n') {
-            delwin(welc);
             game();
         }
     }
