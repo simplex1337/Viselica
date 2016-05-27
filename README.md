@@ -1,5 +1,5 @@
 ###Репозиторий для курсовой работы по ТРПО
-##HANGMAN
+##HANGMAN [![Build Status](https://travis-ci.org/simplex1337/Viselica.svg?branch=master)](https://travis-ci.org/simplex1337/Viselica)
 Hangman - консольная игра, написанная по мотивам игры "Виселица" на Си.
 
 ####Системные требования
