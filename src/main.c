@@ -107,6 +107,7 @@ int main()
         if (a == '\n') {
             game();
         }
+        clear();
     }
     keypad(stdscr, false);
     endwin();
