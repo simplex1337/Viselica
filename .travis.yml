@@ -4,7 +4,5 @@ language: c
 compiler: gcc
 install: sudo apt-get -y install ncurses-dev  
 script:
- - make all
- - make test
- - cd bin
+ - make
  - ./hangman_test
