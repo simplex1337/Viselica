@@ -13,8 +13,6 @@ void game()
 {
     unsigned int choice = 0;
     int hires = 0, y = 0, i, life = 13, flg = 0;
-    if (getmaxx(stdscr) >= 130 && getmaxy(stdscr) >= 40)
-        hires++;
     char guess;
     clear();
     keypad(stdscr, true);
@@ -52,6 +50,10 @@ void game()
     for (i = 0; i < 20; i++)
         cens[i] = '\0';
     while (strcmp(cens, word) && life > 0 && guess != 27) {
+        if (getmaxx(stdscr) >= 130 && getmaxy(stdscr) >= 40)
+            hires++;
+        else
+            hires = 0;
         clear();
         life = asteriks(word, cens, guess, life);//обработчик от Мариши
         if (hires) {
@@ -59,6 +61,7 @@ void game()
             y = LINES / 2 - 3;
         } else {
             risunok(life);//рисунок от Дани
+            y = 0;
         }
         mvprintw(y, 0,"Ваше слово сейчас: %s\n", cens);
 	    jizi(life, hires);//жизни от Дани
