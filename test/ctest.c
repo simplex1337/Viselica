@@ -10,16 +10,3 @@ CTEST(total, txt_reading)
     ASSERT_DBL_NEAR(s, res);
 }
 
-CTEST(total, word_censoring_part1) 
-{
-    int res = asteriks("Milk", "****", 'i', 12);
-    int s = 12;
-    ASSERT_DBL_NEAR(s, res);
-}
-
-CTEST(total, word_censoring_part2) 
-{
-    int res = asteriks(word, "****", 'o', 12);
-    int s = 12;
-    ASSERT_DBL_NEAR(s, res);
-}
