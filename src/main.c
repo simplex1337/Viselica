@@ -12,7 +12,9 @@ const char themes[6][43] = {
 void game()
 {
     unsigned int choice = 0;
-    int i, life = 13, flg = 0;
+    int hires = 0, y = 0, i, life = 13, flg = 0;
+    if (getmaxx(stdscr) >= 130 && getmaxy(stdscr) >= 40)
+        hires++;
     char guess;
     clear();
     keypad(stdscr, true);
@@ -52,29 +54,31 @@ void game()
     while (strcmp(cens, word) && life > 0 && guess != 27) {
         clear();
         life = asteriks(word, cens, guess, life);//обработчик от Мариши
-        printw("Ваше слово сейчас: %s\n", cens);
-        risunok(life);//рисунок от Дани
-	    jizi(life);//жизни от Дани
+        if (hires) {
+            risunok_hd(life);//рисунок от Дани
+            y = LINES / 2 - 3;
+        } else {
+            risunok(life);//рисунок от Дани
+        }
+        mvprintw(y, 0,"Ваше слово сейчас: %s\n", cens);
+	    jizi(life, hires);//жизни от Дани
 	    attron(A_REVERSE);
         mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для подтверждения, ESC для выхода");
         attroff(A_REVERSE);
-        guess = input();//ввод от Ксюни
+        guess = input(hires);//ввод от Ксюни
     }
     clear();
     printw("Загаданное слово было: %s\n", word); 
 	initscr();
-	WINDOW *con = subwin(stdscr, 23, 70, (LINES - 6) / 2, (COLS - 64) / 2);
-	//WINDOW *con = subwin(stdscr, 25, 70, 23, 40);
     if ((life > 0) && (guess != 27)){
         printw("Осталось жизней: %d\n", life);
-		jizi(life);  		
+		jizi(life, 0);  		
 		win();	
 	}
 	else {
 		printw("Осталось жизней: %d\n", life);
 		lose();                                                        
 	}
-	delwin(con);
 	attron(A_REVERSE);
     mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите любую клавишу для продолжения");
     attroff(A_REVERSE);

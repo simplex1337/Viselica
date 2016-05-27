@@ -2,9 +2,13 @@
 #include <stdlib.h>
 #include <curses.h>
 
-void jizi(int a)
+void jizi(int a, int hires)
 {
-	WINDOW *jiz = subwin(stdscr, 3, 72, 2, 0);
+	WINDOW *jiz;
+    if (hires)
+        jiz = subwin(stdscr, 3, 72, LINES / 2 - 1, 0);
+    else
+        jiz =  subwin(stdscr, 3, 72, 2, 0); 
 	if ((a <= 12) && (a >= 1)) {
 		switch(a) {
 		case 12:

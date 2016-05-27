@@ -15,8 +15,8 @@ int asteriks(char word[], char cens[], char guess, int life);
 void win();
 void lose();
 void hangman();
-void jizi(int life);
+void jizi(int life, int hires);
 void risunok(int life);
-void risunok1(int life);
-unsigned char input();
+void risunok_hd(int life);
+unsigned char input(int hires);
 #endif
