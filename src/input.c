@@ -1,22 +1,28 @@
 #define _XOPEN_SOURCE_EXTENDED
-#include "vis.h"			//ввод с клавиатуры символа юникода
+#include "vis.h"		
 
 unsigned char input() 
 {
 	char symbol, temp;
+	raw();
+	noecho();
 	while (symbol !='\n') {
-        if (symbol == '\177')
+     	if (symbol == '\177') {
+		mvwprintw(stdscr, 1, 0,("Введите букву: "));
+		delch();
+	}
+	if (symbol < 'a' || symbol > 'z') {
 			mvwprintw(stdscr, 1, 0,("Введите букву: "));
-        else {
-            mvwprintw(stdscr, 1, 0,("Введите букву: "));
-            addstr(&symbol);
-        }
-        if (symbol == 'q')
-            return symbol;
-        cbreak();
-        noecho();
+		}
+	else {
+        	mvwprintw(stdscr, 1, 0,("Введите букву: "));
+           	attron(A_BOLD);
+		printw("%c", symbol);
+		attroff(A_BOLD);
+	}
         temp = symbol;
-        symbol = getch();
+	refresh();
+	symbol = getch();
     }
     return temp;
 }
