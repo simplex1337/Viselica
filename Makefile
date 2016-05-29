@@ -9,7 +9,7 @@ COMPILE_FLAGS =
 RCOMPILE_FLAGS = -D NDEBUG -O2
 DCOMPILE_FLAGS = -D DEBUG -O0 -g
 INCLUDES = -I $(SRC_PATH)/ 
-LINK_FLAGS = -lncurses
+LINK_FLAGS = -lncursesw
 print-%: ; @echo $*=$($*)
 SHELL = /bin/bash
 
