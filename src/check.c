@@ -7,7 +7,7 @@ int check(char guess, char alph[]) {
 	
 	int i;
 	for (i=0; i<26; i++) {
-		if (guess== alph[i]) {
+		if (guess== alph[i] || (guess + 32) == alph[i] || (guess - 32) == alph[i] ) {
 			return 1;
 		}
 	}
