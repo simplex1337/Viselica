@@ -11,7 +11,7 @@
 
 void risunok(int life);
 int random_word(char word[], unsigned int choice);
-int asteriks(char word[], char cens[], char guess, int life);
+int asteriks(char word[], char cens[], char guess, int life, int donth);
 void win();
 void lose();
 void hangman();
@@ -19,4 +19,5 @@ void jizi(int life, int hires);
 void risunok(int life);
 void risunok_hd(int life);
 unsigned char input(int hires);
+int check(char guess, char alph[]);
 #endif

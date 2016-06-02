@@ -2,8 +2,11 @@
                          //слово, из букв, которые
                         //были отгаданы
 
-int asteriks(char word[], char cens[], char guess, int life)
+int asteriks(char word[], char cens[], char guess, int life, int donth)
 {
+	if (donth == 1) {
+		return life;
+	}
     int i, flg = 0;
     for (i = 0; i < strlen(word); i++) {
         if (guess == word[i] || (guess - 32) == word[i]

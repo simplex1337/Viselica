@@ -49,13 +49,18 @@ void game()
     char cens[20];
     for (i = 0; i < 20; i++)
         cens[i] = '\0';
+    char alph[25];
+	for (i=0; i<26; i++) {
+	alph[i] = '\0';
+	}
+	int donth = 0;    
     while (strcmp(cens, word) && life > 0 && guess != 27) {
         if (getmaxx(stdscr) >= 130 && getmaxy(stdscr) >= 40)
             hires++;
         else
             hires = 0;
         clear();
-        life = asteriks(word, cens, guess, life);//обработчик от Мариши
+        life = asteriks(word, cens, guess, life, donth);//обработчик от Мариши
         if (hires) {
             risunok_hd(life);//рисунок от Дани
             y = LINES / 2 - 3;
@@ -69,6 +74,7 @@ void game()
         mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для подтверждения, ESC для выхода");
         attroff(A_REVERSE);
         guess = input(hires);//ввод от Ксюни
+        donth = check(guess, alph);
     }
     clear();
     printw("Загаданное слово было: %s\n", word); 
