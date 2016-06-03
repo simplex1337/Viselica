@@ -273,9 +273,9 @@ Postman
 Printer
 Producer
 Professor
-programmer
+Programmer
 Prosecutor
-psychiatrist
+Psychiatrist
 Railroader
 Receptionist
 Rigger
