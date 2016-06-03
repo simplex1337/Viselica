@@ -6,12 +6,11 @@ int check(char guess, char alph[]) {
 	}
 	
 	int i;
-	for (i=0; i<26; i++) {
-		if (guess== alph[i] || (guess + 32) == alph[i] || (guess - 32) == alph[i] ) {
+	for (i = 0; i < 26; i++) {
+		if (guess == alph[i] || (guess + 32) == alph[i] || (guess - 32) == alph[i] ) 
 			return 1;
-		}
 	}
-	for (i=0; i<26; i++) {
+	for (i = 0; i < 26; i++) {
 		if (alph[i] == '\0') {
 			alph[i] = guess;
 			return 0;

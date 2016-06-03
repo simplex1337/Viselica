@@ -50,9 +50,8 @@ void game()
     for (i = 0; i < 20; i++)
         cens[i] = '\0';
     char alph[25];
-	for (i=0; i<26; i++) {
-	alph[i] = '\0';
-	}
+	for (i = 0; i < 26; i++)
+	    alph[i] = '\0';
 	int donth = 0;    
     while (strcmp(cens, word) && life > 0 && guess != 27) {
         if (getmaxx(stdscr) >= 130 && getmaxy(stdscr) >= 40)
