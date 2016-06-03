@@ -1,4 +1,3 @@
-#define _XOPEN_SOURCE_EXTENDED
 #include "vis.h"
 
 unsigned char input(int hires)
@@ -6,7 +5,7 @@ unsigned char input(int hires)
     char symbol, temp;
     int y = 1;
     if (hires)
-        y = LINES / 2 - 2;
+        y = LINES / 2 - 1;
     raw();
     noecho();
     while (symbol != '\n') {
