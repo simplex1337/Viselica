@@ -64,7 +64,7 @@ void game()
             risunok(life);      //рисунок от Дани
             y = 0;
         }
-        mvprintw(y, 0, "Выбранная тема: %s\n", themes[i]);
+        mvprintw(y, 0, "Выбранная тема: %s\n", themes[choice]);
         mvprintw(y + 1, 0, "Ваше слово сейчас: %s\n", cens);
         jizi(life, hires);      //жизни от Дани
         attron(A_REVERSE);
