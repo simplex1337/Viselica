@@ -7,7 +7,7 @@
 void risunok_hd(int a)
 {
     WINDOW *ris =
-        subwin(stdscr, 33, 0, (getmaxy(stdscr) - 33) / 2, getmaxx(stdscr) - 66);
+        subwin(stdscr, 32, 0, (getmaxy(stdscr) - 32) / 2, getmaxx(stdscr) - 66);
     if ((a <= 12) && (a >= 1)) {
         switch (a) {
             case 12:
@@ -913,5 +913,5 @@ void risunok_hd(int a)
                 " **************************************************************** \n");
     }
     box(ris, 0, 0);
-    delwin(ris);
+    //delwin(ris);
 }

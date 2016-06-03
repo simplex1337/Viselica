@@ -51,19 +51,15 @@ void game()
     char alph[25] = { '\0' };
     int donth = 0;
     while (strcmp(cens, word) && life > 0 && guess != 27) {
-        if (getmaxx(stdscr) >= 130 && getmaxy(stdscr) >= 40)
-            hires++;
-        else
-            hires = 0;
-        clear();
-        life = asteriks(word, cens, guess, life, donth);        //обработчик от Мариши
-        if (hires) {
-            risunok_hd(life);   //рисунок от Дани
+        if (getmaxx(stdscr) >= 130 && getmaxy(stdscr) >= 40) {
+            hires = 1;
             y = LINES / 2 - 3;
         } else {
-            risunok(life);      //рисунок от Дани
+            hires = 0;
             y = 0;
         }
+        clear();
+        life = asteriks(word, cens, guess, life, donth);        //обработчик от Мариши
         mvprintw(y, 0, "Выбранная тема: %s\n", themes[choice]);
         mvprintw(y + 1, 0, "Ваше слово сейчас: %s\n", cens);
         jizi(life, hires);      //жизни от Дани
@@ -71,15 +67,17 @@ void game()
         mvwprintw(stdscr, getmaxy(stdscr) - 1, 0,
                   "Нажмите ENTER для подтверждения, ESC для выхода");
         attroff(A_REVERSE);
+        if (hires)
+            risunok_hd(life);   //рисунок от Дани
+        else
+            risunok(life);      //рисунок от Дани
         guess = input(hires);   //ввод от Ксюни
         donth = check(guess, alph);
     }
     clear();
     printw("Загаданное слово было: %s\n", word);
-    initscr();
     if ((life > 0) && (guess != 27)) {
         printw("Осталось жизней: %d\n", life);
-        jizi(life, 0);
         win();
     } else {
         printw("Осталось жизней: %d\n", life);
