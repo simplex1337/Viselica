@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <curses.h>
+#include "vis.h" 
 
 void jizi(int a, int hires)
 {

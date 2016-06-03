@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <curses.h>
-#include <stdlib.h>
+#include "vis.h" 
 
 void win()
 {
