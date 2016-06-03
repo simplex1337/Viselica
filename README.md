@@ -15,13 +15,15 @@ Hangman - консольная игра, написанная по мотива�
 
 Перед началом сборки, необходимо установить дополнительные компоненты
 
-Для Ubuntu
+>Для Ubuntu
 
-`sudo apt-get install gcc libncurses5-dev libncursesw5-dev git`
+>`sudo apt-get install gcc libncurses5-dev libncursesw5-dev git`
 
-Для Arch
 
-`sudo pacman -S gcc git ncurs`
+
+>Для Arch
+
+>`sudo pacman -S gcc git ncurs`
 
 В консоли перейдите в удобную для вас папку, где будет храниться ваша игра.
 
