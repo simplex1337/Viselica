@@ -3,7 +3,7 @@
 unsigned char input(int hires)
 {
     char symbol, temp;
-    int y = 1;
+    int y = 2;
     if (hires)
         y = LINES / 2 - 1;
     raw();

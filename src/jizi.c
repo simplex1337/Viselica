@@ -8,7 +8,7 @@ void jizi(int a, int hires)
     if (hires)
         jiz = subwin(stdscr, 3, 72, LINES / 2, 0);
     else
-        jiz = subwin(stdscr, 3, 72, 2, 0);
+        jiz = subwin(stdscr, 3, 72, 3, 0);
     if ((a <= 12) && (a >= 1)) {
         switch (a) {
             case 12:
