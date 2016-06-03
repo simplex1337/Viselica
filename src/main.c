@@ -12,8 +12,10 @@ const char themes[6][43] = {
 void game()
 {
     unsigned int choice = 0;
-    int hires = 0, y = 0, i, life = 13, flg = 0;
+    int hires = 0, y = 0, i, life = 13, flg = 0, donth = 0;
     char guess;
+    char cens[20] = { '\0' };
+    char alph[25] = { '\0' };
     clear();
     keypad(stdscr, true);
     curs_set(0);
@@ -47,9 +49,6 @@ void game()
         }
     }
     random_word(word, choice);
-    char cens[20] = { '\0' };
-    char alph[25] = { '\0' };
-    int donth = 0;
     while (strcmp(cens, word) && life > 0 && guess != 27) {
         if (getmaxx(stdscr) >= 130 && getmaxy(stdscr) >= 40) {
             hires = 1;
@@ -68,21 +67,19 @@ void game()
                   "Нажмите ENTER для подтверждения, ESC для выхода");
         attroff(A_REVERSE);
         if (hires)
-            risunok_hd(life);   //рисунок от Дани
+            risunok_hd(life + 1);   //рисунок от Дани
         else
-            risunok(life);      //рисунок от Дани
+            risunok(life + 1);      //рисунок от Дани
         guess = input(hires);   //ввод от Ксюни
         donth = check(guess, alph);
     }
     clear();
     printw("Загаданное слово было: %s\n", word);
-    if ((life > 0) && (guess != 27)) {
-        printw("Осталось жизней: %d\n", life);
+    printw("Осталось жизней: %d\n", life);
+    if ((life > 0) && (guess != 27)) 
         win();
-    } else {
-        printw("Осталось жизней: %d\n", life);
+    else
         lose();
-    }
     attron(A_REVERSE);
     mvwprintw(stdscr, getmaxy(stdscr) - 1, 0,
               "Нажмите любую клавишу для продолжения");
