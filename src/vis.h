@@ -2,9 +2,9 @@
 #define vis_h
 
 #include <time.h>
-#include <stdio.h>          //главная функция
-#include <stdlib.h>         //объединяет все подфункции
-#include <curses.h>         //является так же графической оболочкой
+#include <stdio.h>              //главная функция
+#include <stdlib.h>             //объединяет все подфункции
+#include <curses.h>             //является так же графической оболочкой
 #include <locale.h>
 #include <string.h>
 #define WORD_SIZE 20

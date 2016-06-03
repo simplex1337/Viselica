@@ -1,8 +1,8 @@
 #include "vis.h"
 
-char word[20]; 
+char word[20];
 const char themes[6][43] = {
-    "Животные", 
+    "Животные",
     "Птицы",
     "Профессии",
     "Марки автомобилей",
@@ -16,75 +16,77 @@ void game()
     char guess;
     clear();
     keypad(stdscr, true);
-    curs_set(0); 
+    curs_set(0);
     while (!flg) {
         unsigned i;
         clear();
         printw("Выберите тему:\n");
         for (i = 0; i < 5; i++) {
-            if ( i == choice )
+            if (i == choice)
                 addch('>');
-            else          
+            else
                 addch(' ');
             printw("%s\n", themes[i]);
         }
         attron(A_REVERSE);
-        mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для подтверждения, стрелки вверх/вниз для выбора");
+        mvwprintw(stdscr, getmaxy(stdscr) - 1, 0,
+                  "Нажмите ENTER для подтверждения, стрелки вверх/вниз для выбора");
         attroff(A_REVERSE);
         switch (getch()) {
             case KEY_UP:
                 if (choice)
-                    choice--; 
-            break;
+                    choice--;
+                break;
             case KEY_DOWN:
                 if (choice != 4)
                     choice++;
-            break;
+                break;
             case '\n':
                 flg++;
-            break;
+                break;
         }
     }
     random_word(word, choice);
-    char cens[20] = {'\0'};
-    char alph[25] = {'\0'};
-	int donth = 0;    
+    char cens[20] = { '\0' };
+    char alph[25] = { '\0' };
+    int donth = 0;
     while (strcmp(cens, word) && life > 0 && guess != 27) {
         if (getmaxx(stdscr) >= 130 && getmaxy(stdscr) >= 40)
             hires++;
         else
             hires = 0;
         clear();
-        life = asteriks(word, cens, guess, life, donth);//обработчик от Мариши
+        life = asteriks(word, cens, guess, life, donth);        //обработчик от Мариши
         if (hires) {
-            risunok_hd(life);//рисунок от Дани
+            risunok_hd(life);   //рисунок от Дани
             y = LINES / 2 - 3;
         } else {
-            risunok(life);//рисунок от Дани
+            risunok(life);      //рисунок от Дани
             y = 0;
         }
-        mvprintw(y, 0,"Ваше слово сейчас: %s\n", cens);
-	    jizi(life, hires);//жизни от Дани
-	    attron(A_REVERSE);
-        mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для подтверждения, ESC для выхода");
+        mvprintw(y, 0, "Ваше слово сейчас: %s\n", cens);
+        jizi(life, hires);      //жизни от Дани
+        attron(A_REVERSE);
+        mvwprintw(stdscr, getmaxy(stdscr) - 1, 0,
+                  "Нажмите ENTER для подтверждения, ESC для выхода");
         attroff(A_REVERSE);
-        guess = input(hires);//ввод от Ксюни
+        guess = input(hires);   //ввод от Ксюни
         donth = check(guess, alph);
     }
     clear();
-    printw("Загаданное слово было: %s\n", word); 
-	initscr();
-    if ((life > 0) && (guess != 27)){
+    printw("Загаданное слово было: %s\n", word);
+    initscr();
+    if ((life > 0) && (guess != 27)) {
         printw("Осталось жизней: %d\n", life);
-		jizi(life, 0);  		
-		win();	
-	}
-	else {
-		printw("Осталось жизней: %d\n", life);
-		lose();                                                        
-	}
-	attron(A_REVERSE);
-    mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите любую клавишу для продолжения");
+        jizi(life, 0);
+        win();
+    } else {
+        printw("Осталось жизней: %d\n", life);
+        lose();
+    }
+    attron(A_REVERSE);
+    mvwprintw(stdscr, getmaxy(stdscr) - 1, 0,
+              "Нажмите любую клавишу для продолжения");
     attroff(A_REVERSE);
     cbreak();
     getch();
@@ -95,15 +97,17 @@ void game()
 int main()
 {
     set_escdelay(0);
-    setlocale(LC_ALL,"");
+    setlocale(LC_ALL, "");
     initscr();
     char a;
-    mvwprintw(stdscr, 1, (getmaxx(stdscr) - 18)/ 2, "Добро пожаловать в\n");
+    mvwprintw(stdscr, 1, (getmaxx(stdscr) - 18) / 2,
+              "Добро пожаловать в\n");
     while (a != 'q' && a != 'Q' && a != 27) {
-	    hangman();
+        hangman();
         keypad(stdscr, true);
         attron(A_REVERSE);
-        mvwprintw(stdscr, getmaxy(stdscr) - 1, 0, "Нажмите ENTER для начала, Q или ESC для выхода");
+        mvwprintw(stdscr, getmaxy(stdscr) - 1, 0,
+                  "Нажмите ENTER для начала, Q или ESC для выхода");
         attroff(A_REVERSE);
         cbreak();
         refresh();
@@ -118,4 +122,3 @@ int main()
     printf("Bye - bye!\n");
     return 0;
 }
-    
